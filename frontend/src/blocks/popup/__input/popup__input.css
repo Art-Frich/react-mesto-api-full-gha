@@ -1,0 +1,33 @@
+.popup__input {
+  /* обнуляем встроенные отступы */
+  padding: 0;
+  border: none;
+  
+  width: 100%;
+  min-height: 27px;
+  /* чтобы приподнять текст и прижать его к верхней границе блока */
+  padding-bottom: 7px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.popup__input:focus {
+  /* убираем рамку при вводе в окно */
+  outline: none;
+}
+
+.popup__input::placeholder {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #545454;
+}

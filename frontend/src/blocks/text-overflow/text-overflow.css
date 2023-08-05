@@ -1,0 +1,6 @@
+.text-overflow {
+  /* в случае переполнения блока */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

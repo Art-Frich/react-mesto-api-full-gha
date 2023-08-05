@@ -1,0 +1,4 @@
+/* для плавной смены фона. В данной работе только для лайка */
+.transition-background {
+  transition: background-image .15s linear;
+}

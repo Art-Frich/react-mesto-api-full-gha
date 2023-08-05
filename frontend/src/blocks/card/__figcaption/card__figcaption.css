@@ -1,0 +1,8 @@
+.card__figcaption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 22px 20px 19px 21px;
+}

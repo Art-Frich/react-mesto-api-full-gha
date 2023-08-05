@@ -1,0 +1,9 @@
+.popup__info-icon{
+  display: block;
+  margin: 0 0 32px;
+
+  width: 120px;
+  height: 120px;
+
+  object-fit: cover;
+}

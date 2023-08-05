@@ -1,0 +1,4 @@
+/* стиль для плавной смены opacity у интерактивных элементов */
+.transition-opacity {
+  transition: opacity .15s linear;
+}

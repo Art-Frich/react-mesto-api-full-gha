@@ -1,0 +1,17 @@
+.body {
+  padding-top: 45px;
+
+  margin: 0 100px;
+  min-width: 320px;
+
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
+  background: #000;
+}
+
+@media screen and (max-width: 535px) {
+  .body {
+    max-width: 320px;
+    padding-top: 28px;
+    margin: 0 auto;
+  }
+} 

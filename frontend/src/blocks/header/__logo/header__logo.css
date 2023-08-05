@@ -1,0 +1,16 @@
+.header__logo {
+  display: block;
+  width: 142px;
+  height: 33px;
+  object-fit: cover;
+  color: white;
+}
+
+@media screen and (max-width: 535px) {
+  .header__logo {
+    margin-left: 27px;
+    width: 103.74px;
+    height: 24.4px;
+    object-fit: fill;
+  }
+} 

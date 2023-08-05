@@ -1,0 +1,8 @@
+.page-auth__label-btn-link{
+  color: #fff;
+  text-decoration: underline;
+}
+
+.page-auth__label-btn-link:hover{
+  opacity: 0.6;
+}

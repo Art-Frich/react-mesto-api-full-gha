@@ -1,0 +1,49 @@
+.page-auth__btn-submit{
+  width: 358px;
+  height: 50px;
+  margin-top: 186px;
+  margin-bottom: 30px;
+
+  border-radius: 2px;
+  background: #FFF;
+
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  font-family: Inter;
+
+  text-decoration: none;
+  position: relative;
+  transition: all .5s;
+
+  cursor: pointer;
+}
+
+.page-auth__btn-submit::before,
+.page-auth__btn-submit::after{
+  content:"";
+  position:absolute;
+  width:2rem;
+  height:2rem;
+  border-style: solid;
+  border-color: #fff;
+  transition: all .5s;
+  box-sizing: border-box;
+}
+.page-auth__btn-submit::before{
+  top: -1rem;
+  left: -1rem;
+  border-width: 2px 0 0 2px;
+}
+.page-auth__btn-submit::after{
+  bottom:-1rem;
+  right: -1rem;
+  border-width: 0px 2px 2px 0px;
+}
+
+.page-auth__btn-submit:hover::before,
+.page-auth__btn-submit:hover::after{
+  width:calc(100% + 2rem);
+  height:calc(100% + 2rem);
+  border-color:#fff;
+}

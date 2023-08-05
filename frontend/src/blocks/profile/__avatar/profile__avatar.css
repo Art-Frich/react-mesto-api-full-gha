@@ -1,0 +1,27 @@
+.profile__avatar {
+  display: block;
+  width: 120px;
+  position: relative;
+
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  z-index: -1;
+}
+
+.profile__avatar::before{
+  content: attr(alt) ' отсутствует =(';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+
+  background: linear-gradient(#484848, #e4e2e2);
+}

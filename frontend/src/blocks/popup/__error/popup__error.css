@@ -1,0 +1,15 @@
+.popup__error {
+  position: absolute;
+  left: 0;
+  /* 100% - высота input, + 2px от бордера */
+  top: calc(100% + 2px);
+
+  /* visibility: hidden;
+  opacity: 0; */
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #f00;
+}

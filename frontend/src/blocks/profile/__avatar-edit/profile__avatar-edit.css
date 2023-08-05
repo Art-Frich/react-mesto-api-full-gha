@@ -1,0 +1,18 @@
+.profile__avatar-edit{
+  position: absolute;
+  width: 100%;
+
+  background-image: url(../../../images/edit-avatar-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 26px 26px;
+
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  /* transition: visibility .15s linear, opacity .15s linear; */
+}
+
+/* .profile__avatar-container:hover .profile__avatar-edit {
+  visibility: visible;
+  opacity: 1;
+} */

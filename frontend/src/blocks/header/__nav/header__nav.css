@@ -1,0 +1,9 @@
+.header__nav{
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}

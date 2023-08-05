@@ -1,0 +1,20 @@
+.profile__title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+@media screen and (max-width: 965px) {
+  .profile__title-container {
+    /* т.к. имя должно быть по центру, а кнопка справа...
+    то учитываем ее размер и смещаем */
+    position: relative;
+    right: -21px;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .profile__title-container {
+    right: -14px;
+  }
+} 

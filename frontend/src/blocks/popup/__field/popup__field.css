@@ -1,0 +1,20 @@
+.popup__field {
+  position: relative;
+  display: block;
+}
+
+/* отступ между label */
+.popup__field:first-of-type {
+  margin-bottom: 30px;
+}
+
+/* отступ до btn-save */
+.popup__field:last-of-type {
+  margin-bottom: 48px;
+}
+
+@media screen and (max-width: 535px) {
+  .popup__field:last-of-type {
+    margin-bottom: 45px;
+  }
+} 

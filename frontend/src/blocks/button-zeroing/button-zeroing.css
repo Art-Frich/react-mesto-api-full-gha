@@ -1,0 +1,6 @@
+/* сброс стилей кнопок */
+.button-zeroing {
+  padding: 0;
+  border: none;
+  background: none;
+}

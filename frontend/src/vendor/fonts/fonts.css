@@ -1,0 +1,31 @@
+/* swap — задаёт очень короткий (менее 100 миллисекунд) период блокировки и бесконечный период замены. При такой стратегии браузер практически сразу отображает текст запасным шрифтом, а затем, когда подгружен нужный шрифт, переключается на него.  https://doka.guide/css/font-display/*/
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+    url(./InterWeb/Inter-Regular.woff2) format("woff2"),
+    url(./InterWeb/Inter-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+    url(./InterWeb/Inter-Medium.woff2) format("woff2"),
+    url(./InterWeb/Inter-Medium.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: 
+    url(./InterWeb/Inter-Black.woff2) format("woff2"),
+    url(./InterWeb/Inter-Black.woff) format("woff");
+}

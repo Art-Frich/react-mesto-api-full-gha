@@ -1,0 +1,28 @@
+/* кнопка редактирования профиля */
+.profile__btn-edit {
+  /* чтобы она была не под блоком, а рядом с ним */
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 18px;
+
+  /* выравнить на уровне текста */
+  vertical-align: baseline;
+  background: url(../../../images/edit-button.svg);
+  cursor: pointer;
+}
+
+.profile__btn-edit:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 535px) {
+  .profile__btn-edit {
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+
+    background-size: cover;
+  }
+
+}

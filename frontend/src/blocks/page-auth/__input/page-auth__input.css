@@ -1,0 +1,42 @@
+.page-auth__input {
+  padding: 0;
+  border: none;
+  
+  width: 358px;
+  min-height: 27px;
+  padding-bottom: 11px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #CCC;
+
+  box-sizing: border-box;
+  border-bottom: 2px solid #CCC ;
+  background: #000;
+}
+
+.page-auth__input:focus {
+  /* убираем рамку при вводе в окно */
+  outline: none;
+}
+
+.page-auth__input::placeholder {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #CCC;
+}
+
+.page-auth__input:-webkit-autofill {
+  background: #000;
+  color: #CCC;
+}
+
+.page-auth__input:-moz-autofill {
+  background: #000;
+  color: #CCC;
+}
