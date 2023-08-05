@@ -30,6 +30,13 @@ const regExpUrl = /^(http|https):\/\/[\w\-._~:/?#[\]@!\$&'()\*\+,;=]+\.[a-z\/]{2
 const regExpEmail = /[\w]+@[\w]+\.[a-z]{2,}/;
 const regExpObjectId = /^[\w]{24}$/;
 
+const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
+const allowedCors = [
+  'localhost:3000',
+  'https://riki-tiki-v-damki.nomoreparties.co',
+  'http://riki-tiki-v-damki.nomoreparties.co',
+];
+
 const mongooseOptions = {
   serverSelectionTimeoutMS: 5000,
   family: 4,
@@ -73,4 +80,7 @@ module.exports = {
   cookieOptions,
 
   fullerConsoleLine,
+
+  DEFAULT_ALLOWED_METHODS,
+  allowedCors,
 };

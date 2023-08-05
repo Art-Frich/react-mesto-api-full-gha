@@ -12,6 +12,7 @@ const checkExistence = (object, Err = NotFoundError) => {
     throw new Err();
   }
 };
+module.exports.checkExistence = checkExistence;
 
 /* eslint-disable no-console */
 module.exports.handleAppError = (err) => console.log(`Произошла ошибка: ${err.name} ${err.message}. \n${err.stack}`);
@@ -63,5 +64,3 @@ module.exports.sendError = (err, req, res, next) => {
         : message,
     });
 };
-
-module.exports.checkExistence = checkExistence;
