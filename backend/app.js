@@ -27,8 +27,8 @@ try {
   app.use(bodyParser.json());
   app.use(cookieParser());
 
-  app.use(cors);
   app.use(requestLogger);
+  app.use(cors);
 
   // crash-test
   app.get('/crash-test', () => {
