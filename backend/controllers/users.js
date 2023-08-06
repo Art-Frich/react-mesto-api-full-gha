@@ -2,7 +2,8 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
 
 const {
-  NOT_USERS_TEXT, SUCCES_CREATE_STATUS, cookieOptions, MONGO_CONFLICT_STATUS,
+  NOT_USERS_TEXT, SUCCES_CREATE_STATUS, newCookieOptions,
+  MONGO_CONFLICT_STATUS, oldCookieOptions, LOGOUT_SUCC,
 } = require('../helpers/constants');
 const { tokenCreate, checkHandleSend, handleError } = require('../helpers/utils');
 const UserAlreadyExist = require('../castomErrors/UserAlreadyExist');
@@ -70,8 +71,18 @@ module.exports.login = (req, res, next) => {
   User.findUserByCredentials(email, password)
     .then((user) => {
       const token = tokenCreate(user._id);
-      res.cookie('jwt', token, cookieOptions);
+      res.cookie('jwt', token, newCookieOptions);
       res.send({ _id: user._id });
     })
     .catch(next);
+};
+
+module.exports.logout = (req, res, next) => {
+  try {
+    const token = tokenCreate(req.user._id, 0);
+    res.cookie('jwt', token, oldCookieOptions);
+    res.send({ data: LOGOUT_SUCC });
+  } catch (err) {
+    next(err);
+  }
 };

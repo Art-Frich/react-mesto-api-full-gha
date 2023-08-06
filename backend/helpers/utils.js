@@ -19,12 +19,12 @@ module.exports.handleAppError = (err) => console.log(`Произошла оши�
 module.exports.handleOtherRouts = (req, res, next) => next(new NotFoundRouteError());
 module.exports.handleStartServerConsole = (PORT) => console.log(`${fullerConsoleLine}\nApp listening on port  ${PORT}`);
 
-module.exports.tokenCreate = (id) => {
+module.exports.tokenCreate = (id, ageToken = '7d') => {
   const { NODE_ENV, JWT_SECRET } = process.env;
   const token = jwt.sign(
     { _id: id },
     NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
-    { expiresIn: '7d' },
+    { expiresIn: ageToken },
   );
   return token;
 };

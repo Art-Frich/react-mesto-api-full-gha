@@ -6,8 +6,6 @@ import { apiConfig } from "./constants";
 class Api {
   /**
    * @constructor
-   * @param {string} token токен для авторизации на сервере
-   * @param {string} myId личный id пользователя, назначенный сервером
    * @param {string} urlServer
    * @param {string} qUsersMe строка для запроса в users/me
    * @param {string} qCards строка для запроса в cards
@@ -15,9 +13,8 @@ class Api {
    * @param {string} qAvatar строка для запроса в avatar
    */
   constructor({ 
-    urlServer, qUsersMe, qCards, qLikes, qAvatar, token, myId
+    urlServer, qUsersMe, qCards, qLikes, qAvatar
   }) {
-    this._token = token;
     this._urlServer = urlServer;
     this._qUsersMe = qUsersMe;
     this._qCards = qCards;
@@ -27,9 +24,8 @@ class Api {
     this._urlAuthServer = 'https://api.riki-tiki-v-damki.nomoreparties.co/';
     this._qLogin = 'signin';
     this._qRegister = 'signup';
+    this._qLogout = 'signout'
 
-    this._tokenAuth = localStorage.getItem('jwt');
-    this._myId = myId;
     this._infoMsg = 'Палундра! Сработал catch внутри Api. У нас проблемы с запросом к серверу! Вот что мы знаем: ';
   }
 
@@ -39,11 +35,7 @@ class Api {
    */
   getUserInfo() {
     return this._handleFetch(
-      fetch( this._urlServer + this._qUsersMe, {
-        headers: {
-          authorization: this._token
-        }
-      })
+      fetch( this._urlServer + this._qUsersMe )
     )
   }
 
@@ -53,11 +45,7 @@ class Api {
    */
   getInitialCards() {
     return this._handleFetch(
-      fetch( this._urlServer + this._qCards, {
-        headers: {
-          authorization: this._token
-        }
-      })
+      fetch( this._urlServer + this._qCards )
     )
   }
 
@@ -72,7 +60,6 @@ class Api {
       fetch( this._urlServer + this._qUsersMe, {
         method: 'PATCH',
         headers: {
-          authorization: this._token,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -94,7 +81,6 @@ class Api {
       fetch( this._urlServer + this._qCards, {
         method: 'POST',
         headers: {
-          authorization: this._token,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -114,9 +100,6 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards + id, {
         method: 'DELETE',
-        headers: {
-          authorization: this._token,
-        }
       })
     )
   }
@@ -130,9 +113,6 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards + id + this._qLikes, {
         method: 'PUT',
-        headers: {
-          authorization: this._token,
-        }
       })
     )
   }
@@ -146,9 +126,6 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards + id + this._qLikes, {
         method: 'DELETE',
-        headers: {
-          authorization: this._token,
-        }
       })
     )
   }
@@ -169,7 +146,6 @@ class Api {
       fetch( this._urlServer + this._qUsersMe + this._qAvatar , {
         method: 'PATCH',
         headers: {
-          authorization: this._token,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -204,6 +180,13 @@ class Api {
       })
   }
 
+  logoutUser(){
+    return this._handleFetch( 
+      fetch( this._urlAuthServer + this._qLogout,{
+        method: 'POST',
+      })
+    );
+  }
   
   loginUser( email, password ){
     return fetch( this._urlAuthServer + this._qLogin, {
@@ -220,11 +203,6 @@ class Api {
         ? Promise.reject( res )
         : res.json();
       })
-      .then( res => {
-        localStorage.setItem('jwt', res.token);
-        this._tokenAuth = res.token;
-        return res;
-      })
       .catch( err => {
         if ( err.status === 400 ){
           console.log( this._infoMsg +  "не передано одно из полей." );
@@ -239,13 +217,7 @@ class Api {
 
   async checkJWT(){
     try {
-      const res = await fetch(this._urlAuthServer + this._qUsersMe, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this._tokenAuth}`
-        }
-      });
+      const res = await fetch(this._urlAuthServer + this._qUsersMe);
       return await (!res.ok
         ? Promise.reject(res)
         : res.json());

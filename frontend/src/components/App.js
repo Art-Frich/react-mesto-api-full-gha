@@ -150,7 +150,13 @@ export default function App() {
   }
 
   function onSignOut(){
-    localStorage.removeItem('jwt');
+    api.logoutUser()
+      .then( (res) => navigate('/sign-in'))
+      .catch( () => {
+        setTextInfo('При попытке выйти из аккаунта что-то пошло не так...');
+        setIsError( true );
+        setIsInfoToolTipOpen( true );
+      })
   }
 
   function closeAllPopups(){

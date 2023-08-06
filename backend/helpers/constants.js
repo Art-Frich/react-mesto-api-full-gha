@@ -1,4 +1,5 @@
 const fullerConsoleLine = '###################################################### -_- #####################################################';
+const LOGOUT_SUCC = 'Logout successfull';
 
 const NOT_ROUTE_TEXT = 'Пожалуйста ознакомьтесь с API сервера для обращения к корректным роутам. https://github.com/Art-Frich/express-mesto-gha';
 const NOT_USER_TEXT = 'Пользователь не найден';
@@ -32,7 +33,7 @@ const regExpObjectId = /^[\w]{24}$/;
 
 const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
 const allowedCors = [
-  'localhost:3000',
+  'http://localhost:3000',
   'https://riki-tiki-v-damki.nomoreparties.co',
   'http://riki-tiki-v-damki.nomoreparties.co',
 ];
@@ -41,8 +42,12 @@ const mongooseOptions = {
   serverSelectionTimeoutMS: 5000,
   family: 4,
 };
-const cookieOptions = {
+const newCookieOptions = {
   maxAge: 1000 * 3600 * 24 * 7,
+  httpOnly: true,
+};// 7 day
+const oldCookieOptions = {
+  maxAge: 0,
   httpOnly: true,
 };// 7 day
 
@@ -77,9 +82,11 @@ module.exports = {
   regExpObjectId,
 
   mongooseOptions,
-  cookieOptions,
+  newCookieOptions,
+  oldCookieOptions,
 
   fullerConsoleLine,
+  LOGOUT_SUCC,
 
   DEFAULT_ALLOWED_METHODS,
   allowedCors,
