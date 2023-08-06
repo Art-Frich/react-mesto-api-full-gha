@@ -9,8 +9,7 @@ node_modules
 .env
 
 # production
-./frontend/build
-/build
+build
 
 # misc
 .DS_Store
