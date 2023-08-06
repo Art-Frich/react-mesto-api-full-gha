@@ -23,12 +23,12 @@ try {
   const app = express();
   mongoose.connect(MONGO_URI, mongooseOptions).catch(handleAppError);
 
+  app.use(requestLogger);
+  app.use(cors);
+
   app.use(helmet());
   app.use(bodyParser.json());
   app.use(cookieParser());
-
-  app.use(requestLogger);
-  app.use(cors);
 
   // crash-test
   app.get('/crash-test', () => {
