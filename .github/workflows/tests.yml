@@ -18,9 +18,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-    - name: Сheck if the repository is private
-      if: ${{github.event.repository.private}}
-      run: exit 1
+    # - name: Сheck if the repository is private
+    #   run: exit 1
+    #   if: ${{github.event.repository.private}}
     - name: Get testing lib
       run: set -eu && git clone --branch master --single-branch --depth 1 https://github.com/Yandex-Practicum/web-autotest-public.git
     - name: Copy Makefile
@@ -40,6 +40,7 @@ jobs:
           pnpm i --fix-lockfile --prefix web-autotest-public/
     - name: Run test config
       run: make proj15-test-config
+
   test_endpoints:
     runs-on: ubuntu-latest
     steps:
@@ -49,9 +50,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-    - name: Сheck if the repository is private
-      run: exit 1
-      if: ${{github.event.repository.private}}
+    # - name: Сheck if the repository is private
+    #   run: exit 1
+    #   if: ${{github.event.repository.private}}
     - name: Get testing lib
       run: set -eu && git clone --branch master --single-branch --depth 1 https://github.com/Yandex-Practicum/web-autotest-public.git
     - name: Copy Makefile
