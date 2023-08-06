@@ -52,7 +52,7 @@ export default function Main({
       </section>
       <section className="cards">
         <ul className="cards__grid">
-          { cards.reverse().map( (item) => ( //reverse для упорядоченности
+          { cards.map( (item) => ( //reverse для упорядоченности
             item 
             ?
               <li className="cards__grid-item" key={ item._id }>

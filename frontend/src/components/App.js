@@ -189,7 +189,7 @@ export default function App() {
       const userData = await api.getUserInfo();
       setCurrentUser( userData.data );
       const dataCard =  await api.getInitialCards();
-      setCards( dataCard.data );
+      setCards( dataCard.data.reverse() );
     } catch( err ) {
       handleRejectMessage( err );
     }
