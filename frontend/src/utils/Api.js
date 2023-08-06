@@ -20,8 +20,7 @@ class Api {
     this._qCards = qCards;
     this._qLikes = qLikes;
     this._qAvatar = qAvatar;
-
-    this._urlAuthServer = 'https://api.riki-tiki-v-damki.nomoreparties.co/';
+    
     this._qLogin = 'signin';
     this._qRegister = 'signup';
     this._qLogout = 'signout'
@@ -156,7 +155,7 @@ class Api {
   }
 
   createUser( email, password ){
-    return fetch( this._urlAuthServer + this._qRegister, {
+    return fetch( this._urlServer + this._qRegister, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -182,14 +181,14 @@ class Api {
 
   logoutUser(){
     return this._handleFetch( 
-      fetch( this._urlAuthServer + this._qLogout,{
+      fetch( this._urlServer + this._qLogout,{
         method: 'POST',
       })
     );
   }
   
   loginUser( email, password ){
-    return fetch( this._urlAuthServer + this._qLogin, {
+    return fetch( this._urlServer + this._qLogin, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -217,7 +216,7 @@ class Api {
 
   async checkJWT(){
     try {
-      const res = await fetch(this._urlAuthServer + this._qUsersMe);
+      const res = await fetch(this._urlServer + this._qUsersMe);
       return await (!res.ok
         ? Promise.reject(res)
         : res.json());

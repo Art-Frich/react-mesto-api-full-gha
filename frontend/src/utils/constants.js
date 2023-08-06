@@ -1,5 +1,5 @@
 export const apiConfig = {
-  urlServer: 'https://riki-tiki-v-damki.nomoreparties.co/',
+  urlServer: 'https://api.riki-tiki-v-damki.nomoreparties.co/',
   qUsersMe: 'users/me',
   qCards: 'cards/',
   qLikes: '/likes/',
