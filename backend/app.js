@@ -12,6 +12,7 @@ const { mongooseOptions } = require('./helpers/constants');
 const routes = require('./routes/index');
 const { cors } = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { limiter } = require('./middlewares/limiter');
 
 const {
   PORT = 3000,
@@ -24,6 +25,7 @@ try {
 
   app.use(requestLogger);
   app.use(cors);
+  app.use(limiter);
 
   app.use(helmet());
   app.use(bodyParser.json());
