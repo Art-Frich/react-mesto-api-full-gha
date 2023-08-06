@@ -174,7 +174,7 @@ class Api {
         if ( err.status === 400 ){
           console.log( this._infoMsg + "некорректно заполнено одно из полей." );
         } else { 
-          console.log( this._infoMsg + err );
+          console.log( this._infoMsg + err.message );
         }
         return Promise.reject();
       })
@@ -209,7 +209,7 @@ class Api {
         } else if( err.status === 401 ){
           console.log( this._infoMsg + "пользователь с email не найден." );
         } else { 
-          console.log( this._infoMsg + err );
+          console.log( this._infoMsg + err.message );
         }
         return Promise.reject();
       })
@@ -227,7 +227,7 @@ class Api {
       } else if (err.status === 401) {
         console.log(this._infoMsg + "Кажется, предыдущая сессия устарели и по ней невозможно авторизоваться. Переданный токен некорректен.");
       } else {
-        console.log(this._infoMsg + "Кажется, вы ранее у вас нет в браузере сохраненной сессии с доступом. " + err);
+        console.log(this._infoMsg + "Кажется, вы ранее у вас нет в браузере сохраненной сессии с доступом. " + err.message);
       }
       return Promise.reject();
     }
@@ -241,7 +241,7 @@ class Api {
         : res.json();
       })
       .catch( err => {
-        console.log( this._infoMsg + err );
+        console.log( this._infoMsg + err.message );
         return Promise.reject();
       })
   }
