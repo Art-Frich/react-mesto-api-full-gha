@@ -34,7 +34,9 @@ class Api {
    */
   getUserInfo() {
     return this._handleFetch(
-      fetch( this._urlServer + this._qUsersMe )
+      fetch( this._urlServer + this._qUsersMe, {
+        credentials: 'include'
+      }) 
     )
   }
 
@@ -44,7 +46,9 @@ class Api {
    */
   getInitialCards() {
     return this._handleFetch(
-      fetch( this._urlServer + this._qCards )
+      fetch( this._urlServer + this._qCards, {
+        credentials: 'include'
+      })
     )
   }
 
@@ -58,6 +62,7 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qUsersMe, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -79,6 +84,7 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -99,6 +105,7 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards + id, {
         method: 'DELETE',
+        credentials: 'include',
       })
     )
   }
@@ -112,6 +119,7 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards + id + this._qLikes, {
         method: 'PUT',
+        credentials: 'include',
       })
     )
   }
@@ -125,6 +133,7 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qCards + id + this._qLikes, {
         method: 'DELETE',
+        credentials: 'include',
       })
     )
   }
@@ -144,6 +153,7 @@ class Api {
     return this._handleFetch(
       fetch( this._urlServer + this._qUsersMe + this._qAvatar , {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -157,6 +167,7 @@ class Api {
   createUser( email, password ){
     return fetch( this._urlServer + this._qRegister, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -183,6 +194,7 @@ class Api {
     return this._handleFetch( 
       fetch( this._urlServer + this._qLogout,{
         method: 'POST',
+        credentials: 'include',
       })
     );
   }
@@ -190,6 +202,7 @@ class Api {
   loginUser( email, password ){
     return fetch( this._urlServer + this._qLogin, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -216,7 +229,9 @@ class Api {
 
   async checkJWT(){
     try {
-      const res = await fetch(this._urlServer + this._qUsersMe);
+      const res = await fetch(this._urlServer + this._qUsersMe, {
+        credentials: 'include',
+      });
       return await (!res.ok
         ? Promise.reject(res)
         : res.json());

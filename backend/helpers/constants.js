@@ -44,12 +44,14 @@ const mongooseOptions = {
 };
 const newCookieOptions = {
   maxAge: 1000 * 3600 * 24 * 7,
+  credentials: true,
   httpOnly: true,
 };// 7 day
 const oldCookieOptions = {
   maxAge: 0,
+  credentials: true,
   httpOnly: true,
-};// 7 day
+};
 
 module.exports = {
   NOT_FOUND_STATUS,
