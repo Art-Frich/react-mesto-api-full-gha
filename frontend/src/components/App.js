@@ -65,13 +65,13 @@ export default function App() {
   // handleFinalThenCatchDecorator - декоратор, который содержит catch для отлова ошибок
   // также catch есть в виде декоратора непосредственно внутри api и называется _handleFetch
   function handleCardLike( dataCard ){
-    const isLiked = dataCard.likes.some( i => i._id === currentUser._id );
+    const isLiked = dataCard.likes.some( i => i === currentUser._id );
     handleFinalThenCatchDecorator(
       api.changeLikeCardStatus( dataCard._id, isLiked )
       .then( newCard => {
         setCards( cards => {
           return cards.map( oldCard => {
-            return oldCard._id === newCard._id ? newCard : oldCard
+            return oldCard._id === newCard.data._id ? newCard.data : oldCard
           })
         })
       })
@@ -82,7 +82,7 @@ export default function App() {
     setFetchConditon( true );
     handleFinalThenCatchDecorator(
       api.updateUserData( newUserData.name, newUserData.about )
-      .then( (res) => setCurrentUser( res ))
+      .then( (res) => setCurrentUser( res.data ))
     )
   }
 
@@ -90,7 +90,7 @@ export default function App() {
     setFetchConditon( true );
     handleFinalThenCatchDecorator(
       api.updateAvatar( newUserAvatar.avatar )
-      .then( (res) => setCurrentUser( res ))
+      .then( (res) => setCurrentUser( res.data ))
     )
   }
 
@@ -98,7 +98,7 @@ export default function App() {
     setFetchConditon( true );
     handleFinalThenCatchDecorator(
       api.addNewCard( newCardData.namePlace, newCardData.urlPlace )
-      .then( (newCard) => setCards( [newCard, ...cards] ))
+      .then( (newCard) => setCards( [newCard.data, ...cards] ))
     )
   }
 
@@ -187,9 +187,9 @@ export default function App() {
   const getData = async () => {
     try {
       const userData = await api.getUserInfo();
-      setCurrentUser( userData );
+      setCurrentUser( userData.data );
       const dataCard =  await api.getInitialCards();
-      setCards( dataCard );
+      setCards( dataCard.data );
     } catch( err ) {
       handleRejectMessage( err );
     }

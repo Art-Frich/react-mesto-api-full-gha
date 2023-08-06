@@ -27,13 +27,14 @@ const minLen = 2;
 const maxLen = 30;
 
 // eslint-disable-next-line no-useless-escape
-const regExpUrl = /^(http|https):\/\/[\w\-._~:/?#[\]@!\$&'()\*\+,;=]+\.[a-z\/]{2,}#*$/;
+const regExpUrl = /^(http|https):\/\/[\w\-._~:/?#[\]\\@!\$&'()\*\+,;=]+\.[\w\/]{2,}#*$/;
 const regExpEmail = /[\w]+@[\w]+\.[a-z]{2,}/;
 const regExpObjectId = /^[\w]{24}$/;
 
 const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
 const allowedCors = [
   'http://localhost:3000',
+  'http://localhost:3001',
   'https://riki-tiki-v-damki.nomoreparties.co',
   'http://riki-tiki-v-damki.nomoreparties.co',
 ];
