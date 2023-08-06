@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.59.203
+IP 158.160.59.203
 
 Frontend https://riki-tiki-v-damki.nomoreparties.co
 
