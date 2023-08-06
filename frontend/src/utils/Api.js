@@ -219,7 +219,7 @@ class Api {
         if ( err.status === 400 ){
           console.log( this._infoMsg +  "не передано одно из полей." );
         } else if( err.status === 401 ){
-          console.log( this._infoMsg + "пользователь с email не найден." );
+          console.log( this._infoMsg + 'email или пароль некорректны' );
         } else { 
           console.log( this._infoMsg + err );
         }

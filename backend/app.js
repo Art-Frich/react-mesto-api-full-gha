@@ -5,14 +5,13 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 
-const { errorLogger } = require('express-winston');
 const {
   handleAppError, handleStartServerConsole, sendError,
 } = require('./helpers/utils');
 const { mongooseOptions } = require('./helpers/constants');
 const routes = require('./routes/index');
 const { cors } = require('./middlewares/cors');
-const { requestLogger } = require('./middlewares/logger');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const {
   PORT = 3000,
