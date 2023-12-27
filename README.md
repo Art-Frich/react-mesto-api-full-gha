@@ -9,6 +9,6 @@
 
 IP 158.160.59.203
 
-Frontend https://riki-tiki-v-damki.nomoreparties.co
+Frontend https://riki-tiki-v-damki.nomoreparties.co (сервер снят с обслуживания, ссылка пока не актуальна)
 
-Backend https://api.riki-tiki-v-damki.nomoreparties.co
+Backend https://api.riki-tiki-v-damki.nomoreparties.co (сервер снят с обслуживания, ссылка пока не актуальна)
